@@ -1,6 +1,8 @@
 #include <iostream>
-#include <cv.h>
-#include <highgui.h>
+
+#include <opencv2/core.hpp>
+#include <opencv2/highgui.hpp>
+#include <opencv2/imgproc.hpp>
 
 #include "live_slam_wrapper.h"
 
@@ -16,6 +18,44 @@ using namespace std;
 using namespace lsd_slam;
 char key;
 
+/*int main()
+{
+
+	cvNamedWindow("VideoTest2", CV_WINDOW_AUTOSIZE);
+
+	CvCapture *capture = cvCreateCameraCapture(0);
+
+	CvSize size = cvSize(1920, 1080);
+
+	//cvSetCaptureProperty(capture, CV_CAP_PROP_FRAME_WIDTH, size.width);
+
+	//cvSetCaptureProperty(capture, CV_CAP_PROP_FRAME_HEIGHT, size.height);
+
+	IplImage* frame;
+
+	while (1)
+
+	{
+
+		frame = cvQueryFrame(capture);
+
+		if (!frame) break;
+
+		cvShowImage("VideoTest", frame);
+
+		char c = cvWaitKey(33);
+
+		if (c == 27) break;
+	}
+
+	cvReleaseCapture(&capture);
+
+	cvDestroyWindow("VideoTest");
+
+	return 0;
+
+}*/
+
 int main(int argc, char** argv) {
 	if (argc < 2) {
 		printf(
@@ -26,6 +66,8 @@ int main(int argc, char** argv) {
 	int cameraId = atoi(argv[1]);
 
 	cvNamedWindow("Camera_Output_Undist", 1); //Create window
+
+#define LsdSlam_DIR "C:\\code\\lsd_slam_windows"
 
 	std::string calib_fn = std::string(LsdSlam_DIR)
 			+ "/data/out_camera_data.xml";
@@ -45,11 +87,11 @@ int main(int argc, char** argv) {
 
 	IplImage* frame = cvQueryFrame(capture); //Create image frames from capture
 	printf("wh(%d, %d)\n", frame->width, frame->height);
-	cv::Mat mymat = cv::Mat(frame, true);
+	cv::Mat mymat = cv::cvarrToMat(frame, true);
 	cv::Mat tracker_display = cv::Mat::ones(640, 480, CV_8UC3);
-	cv::circle(mymat, cv::Point(100, 100), 20, cv::Scalar(255, 1, 0), 5);
+	cv:circle(mymat, cv::Point(100, 100), 20, cv::Scalar(255, 1, 0), 5);
 	cv::imshow("Camera_Output_Undist", mymat);
-
+	
 	slamNode.Loop();
 
 	//Undistorter* undistorter = Undistorter::getUndistorterForFile("out_camera_data.xml");

@@ -20,6 +20,8 @@
 
 #include "slam_system.h"
 
+#include "opencv2/opencv.hpp"
+
 #include "model/frame.h"
 #include "tracking/se3_tracker.h"
 #include "tracking/sim3_tracker.h"
@@ -48,8 +50,6 @@
 #ifdef ANDROID
 #include <android/log.h>
 #endif
-
-#include "opencv2/opencv.hpp"
 
 using namespace lsd_slam;
 

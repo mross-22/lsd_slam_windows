@@ -1,3 +1,27 @@
+# Build results
+build/
+thirdparty/g2o/build/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual C++ cache files
+ipch/
+*.aps
+*.ncb
+*.opensdf
+*.sdf
+*.cachefile
+
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+*.sap
+
 lsd_slam_core/bin/
 lsd_slam_core/build/
 lsd_slam_core/cfg/cpp/
