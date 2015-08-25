@@ -37,6 +37,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Readme.md = Readme.md
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "videoInput", "thirdparty\videoInput\videoInput\videoInput.vcxproj", "{E45BDB9F-9880-4970-9F99-68443EC0DE7D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -71,6 +73,10 @@ Global
 		{05852768-DE82-4B3D-96F2-8919F6181F46}.Debug|x64.Build.0 = Debug|x64
 		{05852768-DE82-4B3D-96F2-8919F6181F46}.Release|x64.ActiveCfg = Release|x64
 		{05852768-DE82-4B3D-96F2-8919F6181F46}.Release|x64.Build.0 = Release|x64
+		{E45BDB9F-9880-4970-9F99-68443EC0DE7D}.Debug|x64.ActiveCfg = Debug|x64
+		{E45BDB9F-9880-4970-9F99-68443EC0DE7D}.Debug|x64.Build.0 = Debug|x64
+		{E45BDB9F-9880-4970-9F99-68443EC0DE7D}.Release|x64.ActiveCfg = Release|x64
+		{E45BDB9F-9880-4970-9F99-68443EC0DE7D}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -84,5 +90,6 @@ Global
 		{19A55676-9388-4348-8820-09921CDA458D} = {8AAAB21C-7A35-4441-A039-6F94471BCD94}
 		{6FE4804E-3916-40DA-9E5C-4862FC7E2716} = {A654C9A2-97D6-40E5-84D3-9229363D9194}
 		{05852768-DE82-4B3D-96F2-8919F6181F46} = {714A7FFD-3605-491E-86B2-91B88DF06B6B}
+		{E45BDB9F-9880-4970-9F99-68443EC0DE7D} = {A654C9A2-97D6-40E5-84D3-9229363D9194}
 	EndGlobalSection
 EndGlobal
