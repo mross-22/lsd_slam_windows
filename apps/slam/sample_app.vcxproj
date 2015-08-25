@@ -28,6 +28,7 @@
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -57,9 +58,11 @@
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)lsd_slam;$(BOOST_DIR);$(OPENCV_DIR)include;$(OPENCV_DIR)include\opencv;$(SolutionDir)thirdparty\g2o\source;$(SolutionDir)thirdparty\g2o\source\EXTERNAL\csparse;$(SolutionDir)thirdparty\g2o\vcxproj;$(SolutionDir)thirdparty\eigen-3.2.5;$(SolutionDir)thirdparty\Sophus;$(SolutionDir)thirdparty\openFabMap\include;$(SolutionDir)thirdparty\dirent-1.20.1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)lsd_slam;$(BOOST_DIR);$(OPENCV_DIR)include;$(OPENCV_DIR)include\opencv;$(SolutionDir)thirdparty\g2o\source;$(SolutionDir)thirdparty\g2o\source\EXTERNAL\csparse;$(SolutionDir)thirdparty\g2o\vcxproj;$(SolutionDir)thirdparty\eigen-3.2.5;$(SolutionDir)thirdparty\Sophus;$(SolutionDir)thirdparty\openFabMap\include;$(SolutionDir)thirdparty\dirent-1.20.1\include;$(SolutionDir)thirdparty\videoInput\videoInput</AdditionalIncludeDirectories>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <CompileAs>CompileAsCpp</CompileAs>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -104,12 +107,12 @@ xcopy "$(BOOST_DIR)lib64-msvc-12.0\boost_thread-vc120-mt-gd-1_59.dll" "$(OutDir)
     </CustomBuildStep>
     <CustomBuildStep>
       <Message>Copying boost and OpenCV pre-build binaries to output directory</Message>
-      <Outputs>opencv_world300d.dll;boost_thread-vc120-mt-gd-1_59.dll;boost_system-vc120-mt-gd-1_59.dll</Outputs>
+      <Outputs>$(OutDir)opencv_world300d.dll;$(OutDir)boost_thread-vc120-mt-gd-1_59.dll;$(OutDir)boost_system-vc120-mt-gd-1_59.dll</Outputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)lsd_slam;$(BOOST_DIR);$(OPENCV_DIR)include;$(OPENCV_DIR)include\opencv;$(SolutionDir)thirdparty\g2o\source;$(SolutionDir)thirdparty\g2o\source\EXTERNAL\csparse;$(SolutionDir)thirdparty\g2o\vcxproj;$(SolutionDir)thirdparty\eigen-3.2.5;$(SolutionDir)thirdparty\Sophus;$(SolutionDir)thirdparty\openFabMap\include;$(SolutionDir)thirdparty\dirent-1.20.1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)lsd_slam;$(BOOST_DIR);$(OPENCV_DIR)include;$(OPENCV_DIR)include\opencv;$(SolutionDir)thirdparty\g2o\source;$(SolutionDir)thirdparty\g2o\source\EXTERNAL\csparse;$(SolutionDir)thirdparty\g2o\vcxproj;$(SolutionDir)thirdparty\eigen-3.2.5;$(SolutionDir)thirdparty\Sophus;$(SolutionDir)thirdparty\openFabMap\include;$(SolutionDir)thirdparty\dirent-1.20.1\include;$(SolutionDir)thirdparty\videoInput\videoInput</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <ExceptionHandling>Sync</ExceptionHandling>
       <FloatingPointModel>Fast</FloatingPointModel>
@@ -154,13 +157,15 @@ xcopy "$(BOOST_DIR)lib64-msvc-12.0\boost_thread-vc120-mt-gd-1_59.dll" "$(OutDir)
       <Command>xcopy "$(OPENCV_DIR)x64\vc12\bin\opencv_world300.dll" "$(OutDir)" /D /Y
 xcopy "$(BOOST_DIR)lib64-msvc-12.0\boost_system-vc120-mt-1_59.dll" "$(OutDir)" /D /Y
 xcopy "$(BOOST_DIR)lib64-msvc-12.0\boost_thread-vc120-mt-1_59.dll" "$(OutDir)" /D /Y</Command>
-      <Outputs>opencv_world300.dll;boost_thread-vc120-mt-1_59.dll;boost_system-vc120-mt-1_59.dll</Outputs>
+      <Outputs>$(OutDir)opencv_world300.dll;$(OutDir)boost_thread-vc120-mt-1_59.dll;$(OutDir)boost_system-vc120-mt-1_59.dll</Outputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="VideoInputImageStream.cpp" />
     <ClInclude Include="DebugOutput3DWrapper.h" />
     <ClCompile Include="sample_app.cc" />
     <ClCompile Include="DebugOutput3DWrapper.cpp" />
+    <ClInclude Include="VideoInputImageStream.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\lsd_slam\lsd_slam.vcxproj">
@@ -180,6 +185,9 @@ xcopy "$(BOOST_DIR)lib64-msvc-12.0\boost_thread-vc120-mt-1_59.dll" "$(OutDir)" /
     </ProjectReference>
     <ProjectReference Include="..\..\thirdparty\g2o\vcxproj\stuff.vcxproj">
       <Project>{e9245615-5c27-4bdf-b43d-9a6573db13a1}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\thirdparty\videoInput\videoInput\videoInput.vcxproj">
+      <Project>{e45bdb9f-9880-4970-9f99-68443ec0de7d}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

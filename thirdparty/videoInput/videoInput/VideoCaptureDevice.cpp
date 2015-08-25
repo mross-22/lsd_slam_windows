@@ -228,7 +228,7 @@ ResultCode::Result VideoCaptureDevice::closeDevice()
 	return result;
 }
 
-ResultCode::Result VideoCaptureDevice::readPixels(unsigned char *pPixels)
+ResultCode::Result VideoCaptureDevice:: readPixels(unsigned char *pPixels)
 {
 	return pIReadWriteBuffer->readData(pPixels);
 }

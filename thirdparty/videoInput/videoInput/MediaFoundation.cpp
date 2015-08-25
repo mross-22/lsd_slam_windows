@@ -231,9 +231,9 @@ ResultCode::Result MediaFoundation::getSource(IMFActivate *pActivate, IMFMediaSo
 	else 
 	{
 		hr = pActivate->DetachObject();
-				
-		pActivate->Release();
-				
+
+		// pActivate->Release();		// 2015-08-25 AKo: Why should we release the activation object? 
+
 		result = ResultCode::OK;
 	}
 

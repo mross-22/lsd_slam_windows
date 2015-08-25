@@ -37,8 +37,6 @@
 namespace lsd_slam
 {
 
-
-
 /**
  * Image stream provider using ROS messages.
  */

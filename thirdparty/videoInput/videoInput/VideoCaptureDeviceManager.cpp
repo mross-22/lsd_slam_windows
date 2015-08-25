@@ -59,7 +59,6 @@ ResultCode::Result VideoCaptureDeviceManager::getListOfDevices(vector<Device> &l
 			continue;
 		
 		result = MediaFoundation::getInstance().getSource(ppDevices[sourceIndex], &pDevice);
-
 		
 		if(result != ResultCode::OK)
 			continue;

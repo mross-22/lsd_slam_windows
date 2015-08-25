@@ -78,7 +78,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\UnitTestvideoInput\BoxMode.h" />
     <ClInclude Include="ComMassivPtr.h" />
     <ClInclude Include="DebugPrintOut.h" />
     <ClInclude Include="FormatReader.h" />
@@ -114,6 +113,9 @@
     <ClCompile Include="VideoCaptureSession.cpp" />
     <ClCompile Include="VideoCaptureSink.cpp" />
     <ClCompile Include="videoInput.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\Readme.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

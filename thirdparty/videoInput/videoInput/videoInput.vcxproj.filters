@@ -23,9 +23,6 @@
     <ClInclude Include="MediaFoundation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\UnitTestvideoInput\BoxMode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="MF.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -106,5 +103,8 @@
     <ClCompile Include="ReadWriteBufferFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\Readme.txt" />
   </ItemGroup>
 </Project>
