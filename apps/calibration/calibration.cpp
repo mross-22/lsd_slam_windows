@@ -35,8 +35,6 @@ const char * usage =
 "</opencv_storage>\n";
 
 
-
-
 const char* liveCaptureHelp =
     "When the live video from camera is used as input, the following hot-keys may be used:\n"
         "  <ESC>, 'q' - quit the program\n"

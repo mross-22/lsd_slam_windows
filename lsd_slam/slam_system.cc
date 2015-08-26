@@ -933,7 +933,6 @@ void SlamSystem::trackFrame(uchar* image, unsigned int frameID, bool blockUntilM
 	poseConsistencyMutex.unlock_shared();
 
 
-
 	std::chrono::high_resolution_clock::time_point tv_start, tv_end;
 	//gettimeofday(&tv_start, NULL);
 	tv_start = std::chrono::high_resolution_clock::now();
