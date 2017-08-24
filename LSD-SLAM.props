@@ -2,8 +2,8 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
-    <BOOST_DIR>C:\dep\boost_1_59_0\</BOOST_DIR>
-    <OPENCV_DIR>C:\dep\opencv\build\</OPENCV_DIR>
+    <BOOST_DIR>C:\dependencies\boost_1_64_0\</BOOST_DIR>
+    <OPENCV_DIR>C:\opencv\build\</OPENCV_DIR>
   </PropertyGroup>
   <PropertyGroup />
   <ItemDefinitionGroup />

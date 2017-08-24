@@ -166,7 +166,7 @@ void DebugOutput3DWrapper::publishTrackedFrame(Frame* kf)
 	pose_publisher.publish(pMsg);*/
 
 	
-	cv::circle(tracker_display, cv::Point(320+camToWorld.translation()[0]*640, -240 + camToWorld.translation()[1]*480), 2, cv::Scalar(255, 0, 0),4);
+	cv::circle(tracker_display, cv::Point(320+camToWorld.translation()[0]*640, abs(-240 + camToWorld.translation()[1]*480)), 2, cv::Scalar(255, 0, 0),4);
 	cv::imshow("Tracking_output", tracker_display);
 	std::cout << "PublishTrackedKeyframe: " << camToWorld.translation()[0] << " " << camToWorld.translation()[1] << "  " << camToWorld.translation()[2] << std::endl;
 }

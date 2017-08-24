@@ -449,10 +449,10 @@ UndistorterOpenCV::UndistorterOpenCV(const char* configFileName)
 	int img_width, img_height;
 	
 	cv::FileStorage fs(configFileName, cv::FileStorage::READ);
-	fs["Camera_Matrix"] >> camera_matrix;
-	fs["Distortion_Coefficients"] >> distortion_coefficients;
-	fs["image_Width"] >> img_width;
-	fs["image_Height"] >> img_height;
+	fs["camera_matrix"] >> camera_matrix;
+	fs["distortion_coefficients"] >> distortion_coefficients;
+	fs["image_width"] >> img_width;
+	fs["image_height"] >> img_height;
 	out_width = img_width;
 	out_height = img_height;
 	fs.release();
