@@ -1,0 +1,4 @@
+﻿  blackfly_test.cpp
+c:\users\matija\source\repos\lsd_slam_windows\blackfly_test\blackfly_test.cpp(66): warning C4244: 'initializing': conversion from 'double' to 'unsigned int', possible loss of data
+  blackfly_test.vcxproj -> C:\Users\matija\Source\Repos\lsd_slam_windows\x64\Debug\blackfly_test.exe
+  blackfly_test.vcxproj -> C:\Users\matija\Source\Repos\lsd_slam_windows\x64\Debug\blackfly_test.pdb (Partial PDB)

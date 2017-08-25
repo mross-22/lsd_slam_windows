@@ -64,3 +64,4 @@ data/plane_sequence/*
 lsd.sublime-workspace
 thirdparty/dirent-1.20.1.zip
 thirdparty/dirent-1.20.1/ChangeLog
+*.opendb
