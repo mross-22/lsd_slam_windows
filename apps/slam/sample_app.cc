@@ -4,6 +4,8 @@
 #include <opencv2/highgui.hpp>
 #include <opencv2/imgproc.hpp>
 
+#include <FlyCapture2.h>
+
 #include "live_slam_wrapper.h"
 
 #include "util/settings.h"
@@ -11,6 +13,7 @@
 
 //#include "util/undistorter.h"
 //#include "io_wrapper/OpenCVImageStreamThread.h"
+#include "VideoInputImageStreamPGR.h"
 #include "VideoInputImageStream.h"
 #include "slam_system.h"
 #include "DebugOutput3DWrapper.h"
@@ -128,15 +131,35 @@ void VideoTest()
 }
 
 
+//int bob(int argc, char** argv) {
+//
+//	std::wstring symbolicLink = InitializeVideoInput();
+//	//videoInput& vInput = videoInput::getInstance();
+//
+//
+//	std::string calib_fn = "../../data/out_camera_data.xml";
+//
+//	VideoInputImageStream inputStream(symbolicLink);
+//	inputStream.setCalibration(calib_fn);
+//	inputStream.run();
+//
+//	{
+//		DebugOutput3DWrapper outputWrapper(inputStream.width(), inputStream.height());
+//		LiveSLAMWrapper slamNode(&inputStream, &outputWrapper);
+//
+//		slamNode.Loop();
+//	}
+//
+//	//vInput.closeAllDevices();
+//
+//	return 0;
+//}
+
 int main(int argc, char** argv) {
-
-	std::wstring symbolicLink = InitializeVideoInput();
-	videoInput& vInput = videoInput::getInstance();
-
 
 	std::string calib_fn = "../../data/out_camera_data.xml";
 
-	VideoInputImageStream inputStream(symbolicLink);
+	VideoInputImageStreamPGR inputStream;
 	inputStream.setCalibration(calib_fn);
 	inputStream.run();
 
@@ -147,7 +170,7 @@ int main(int argc, char** argv) {
 		slamNode.Loop();
 	}
 
-	vInput.closeAllDevices();
+	//vInput.closeAllDevices();
 
 	return 0;
 }

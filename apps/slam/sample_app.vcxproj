@@ -38,9 +38,11 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="..\..\LSD-SLAM.props" />
+    <Import Project="..\..\blackfly_test\FlyCapture_d.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="..\..\LSD-SLAM.props" />
+    <Import Project="..\..\blackfly_test\FlyCapture.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
@@ -92,7 +94,7 @@
     </Midl>
     <Link>
       <AdditionalOptions> /machine:x64 /debug %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;libboost_system-vc140-mt-gd-1_64.lib;libboost_thread-vc140-mt-gd-1_64.lib;opencv_world320d.lib</AdditionalDependencies>
+      <AdditionalDependencies>FlyCapture2d_v140.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;libboost_system-vc140-mt-gd-1_64.lib;libboost_thread-vc140-mt-gd-1_64.lib;opencv_world320d.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(BOOST_DIR)\lib64-msvc-14.0;$(OPENCV_DIR)\x64\vc14\lib;$(SolutionDir)\build\lib\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
@@ -148,7 +150,7 @@ xcopy "$(BOOST_DIR)lib64-msvc-14.0\boost_thread-vc140-mt-gd-1_64.dll" "$(OutDir)
     </Midl>
     <Link>
       <AdditionalOptions> /machine:x64 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;libboost_system-vc140-mt-1_64.lib;libboost_thread-vc140-mt-1_64.lib;opencv_world320.lib</AdditionalDependencies>
+      <AdditionalDependencies>FlyCapture2_v140.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;libboost_system-vc140-mt-1_64.lib;libboost_thread-vc140-mt-1_64.lib;opencv_world320.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(BOOST_DIR)/lib64-msvc-14.0;$(OPENCV_DIR)\x64\vc14\lib;$(SolutionDir)\build\lib\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
@@ -166,10 +168,12 @@ xcopy "$(BOOST_DIR)lib64-msvc-14.0\boost_thread-vc140-mt-1_64.dll" "$(OutDir)" /
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="VideoInputImageStream.cpp" />
+    <ClCompile Include="VideoInputImageStreamPGR.cpp" />
     <ClInclude Include="DebugOutput3DWrapper.h" />
     <ClCompile Include="sample_app.cc" />
     <ClCompile Include="DebugOutput3DWrapper.cpp" />
     <ClInclude Include="VideoInputImageStream.h" />
+    <ClInclude Include="VideoInputImageStreamPGR.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\lsd_slam\lsd_slam.vcxproj">
