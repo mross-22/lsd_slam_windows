@@ -450,8 +450,8 @@ int main(int argc, char** argv)
 
 	FlyCapture2::GigEImageSettings imageSettings;
 	imageSettings.offsetX = 0;
-	imageSettings.offsetY = 0;
-	imageSettings.height = imageSettingsInfo.maxHeight;
+	imageSettings.offsetY = 4;
+	imageSettings.height = 592;// imageSettingsInfo.maxHeight;
 	imageSettings.width = imageSettingsInfo.maxWidth;
 	imageSettings.pixelFormat = FlyCapture2::PIXEL_FORMAT_RGB8;
 

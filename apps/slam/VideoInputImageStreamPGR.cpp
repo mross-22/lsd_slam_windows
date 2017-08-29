@@ -89,6 +89,39 @@ void VideoInputImageStreamPGR::operator()()
 		<< camInfo.modelName << " "
 		<< camInfo.serialNumber << std::endl;
 
+	FlyCapture2::GigEImageSettingsInfo imageSettingsInfo;
+	error = camera.GetGigEImageSettingsInfo(&imageSettingsInfo);
+	if (error != FlyCapture2::PGRERROR_OK)
+	{
+		std::cout << "Camera info reading failed" << std::endl;;
+		return;
+	}
+
+	FlyCapture2::GigEImageSettings imageSettings;
+	imageSettings.offsetX = 0;
+	imageSettings.offsetY = 4;
+	imageSettings.height = 592;// imageSettingsInfo.maxHeight;
+	imageSettings.width = imageSettingsInfo.maxWidth;
+	imageSettings.pixelFormat = FlyCapture2::PIXEL_FORMAT_RGB8;
+
+	std::cout << "Setting GigE image settings..." << std::endl;
+
+	error = camera.SetGigEImageSettings(&imageSettings);
+	if (error != FlyCapture2::PGRERROR_OK)
+	{
+		std::cout << "Camera settings failed" << std::endl;
+		return;
+	}
+
+	FlyCapture2::Mode imageMode;
+	imageMode = FlyCapture2::MODE_4;
+	error = camera.SetGigEImagingMode(imageMode);
+	if (error != FlyCapture2::PGRERROR_OK)
+	{
+		std::cout << "Imaging mode setting failed" << std::endl;
+		return;
+	}
+
 	error = camera.StartCapture();
 	if (error == FlyCapture2::PGRERROR_ISOCH_BANDWIDTH_EXCEEDED)
 	{

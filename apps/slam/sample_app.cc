@@ -157,7 +157,7 @@ void VideoTest()
 
 int main(int argc, char** argv) {
 
-	std::string calib_fn = "../../data/out_camera_data.xml";
+	std::string calib_fn = "camera_params.xml";
 
 	VideoInputImageStreamPGR inputStream;
 	inputStream.setCalibration(calib_fn);

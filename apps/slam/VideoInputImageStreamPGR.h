@@ -24,7 +24,7 @@ public:
 
 private:
 	//ReadSetting readSetting;
-	FlyCapture2::Camera camera;
+	FlyCapture2::GigECamera camera;
 	bool haveCalib;
 	lsd_slam::Undistorter* undistorter;
 };
