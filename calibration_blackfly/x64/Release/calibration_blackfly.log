@@ -1,9 +1,9 @@
 ﻿  calibration_blackfly.cpp
-calibration_blackfly.cpp(484): warning C4244: 'initializing': conversion from 'double' to 'unsigned int', possible loss of data
+calibration_blackfly.cpp(518): warning C4244: 'initializing': conversion from 'double' to 'unsigned int', possible loss of data
   Generating code
-  80 of 743 functions (10.8%) were compiled, the rest were copied from previous compilation.
-    27 functions were new in current compilation
-    38 functions had inline decision re-evaluated but remain unchanged
+  7 of 745 functions ( 0.9%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   calibration_blackfly.vcxproj -> C:\Users\matija\Source\Repos\lsd_slam_windows\x64\Release\calibration_blackfly.exe
   calibration_blackfly.vcxproj -> C:\Users\matija\Source\Repos\lsd_slam_windows\x64\Release\calibration_blackfly.pdb (Full PDB)

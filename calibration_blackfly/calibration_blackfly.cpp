@@ -8,6 +8,7 @@
 #include <string.h>
 #include <time.h>
 #include <FlyCapture2.h>
+//#include <FlyCapture2Defs.h>
 #include <iostream>
 
 using namespace cv;
@@ -416,7 +417,7 @@ int main(int argc, char** argv)
 		return 1;
 	}*/
 
-	FlyCapture2::Camera camera;
+	FlyCapture2::GigECamera camera;
 	FlyCapture2::Error error;
 	FlyCapture2::CameraInfo camInfo;
 
@@ -438,6 +439,39 @@ int main(int argc, char** argv)
 	std::cout << camInfo.vendorName << " "
 		<< camInfo.modelName << " "
 		<< camInfo.serialNumber << std::endl;
+
+	FlyCapture2::GigEImageSettingsInfo imageSettingsInfo;
+	error = camera.GetGigEImageSettingsInfo(&imageSettingsInfo);
+	if (error != FlyCapture2::PGRERROR_OK)
+	{
+		std::cout << "Camera info reading failed" << std::endl;;
+		return -1;
+	}
+
+	FlyCapture2::GigEImageSettings imageSettings;
+	imageSettings.offsetX = 0;
+	imageSettings.offsetY = 0;
+	imageSettings.height = imageSettingsInfo.maxHeight;
+	imageSettings.width = imageSettingsInfo.maxWidth;
+	imageSettings.pixelFormat = FlyCapture2::PIXEL_FORMAT_RGB8;
+
+	cout << "Setting GigE image settings..." << endl;
+
+	error = camera.SetGigEImageSettings(&imageSettings);
+	if (error != FlyCapture2::PGRERROR_OK)
+	{
+		std::cout << "Camera settings failed" << std::endl;
+		return -1;
+	}
+
+	FlyCapture2::Mode imageMode;
+	imageMode = FlyCapture2::MODE_4;
+	error = camera.SetGigEImagingMode(imageMode);
+	if (error != FlyCapture2::PGRERROR_OK)
+	{
+		std::cout << "Imaging mode setting failed" << std::endl;
+		return -1;
+	}
 
 	error = camera.StartCapture();
 	if (error == FlyCapture2::PGRERROR_ISOCH_BANDWIDTH_EXCEEDED)
