@@ -43,6 +43,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "calibration", "apps\calibra
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "blackfly_test", "blackfly_test\blackfly_test.vcxproj", "{9DA70767-8322-4E38-80B6-4BAF93ABBEA4}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "calibration_blackfly", "calibration_blackfly\calibration_blackfly.vcxproj", "{48B91078-DE50-4B10-B4E2-5EA693ADF476}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -113,6 +115,14 @@ Global
 		{9DA70767-8322-4E38-80B6-4BAF93ABBEA4}.Release|x64.Build.0 = Release|x64
 		{9DA70767-8322-4E38-80B6-4BAF93ABBEA4}.Release|x86.ActiveCfg = Release|Win32
 		{9DA70767-8322-4E38-80B6-4BAF93ABBEA4}.Release|x86.Build.0 = Release|Win32
+		{48B91078-DE50-4B10-B4E2-5EA693ADF476}.Debug|x64.ActiveCfg = Debug|x64
+		{48B91078-DE50-4B10-B4E2-5EA693ADF476}.Debug|x64.Build.0 = Debug|x64
+		{48B91078-DE50-4B10-B4E2-5EA693ADF476}.Debug|x86.ActiveCfg = Debug|Win32
+		{48B91078-DE50-4B10-B4E2-5EA693ADF476}.Debug|x86.Build.0 = Debug|Win32
+		{48B91078-DE50-4B10-B4E2-5EA693ADF476}.Release|x64.ActiveCfg = Release|x64
+		{48B91078-DE50-4B10-B4E2-5EA693ADF476}.Release|x64.Build.0 = Release|x64
+		{48B91078-DE50-4B10-B4E2-5EA693ADF476}.Release|x86.ActiveCfg = Release|Win32
+		{48B91078-DE50-4B10-B4E2-5EA693ADF476}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -129,5 +139,6 @@ Global
 		{E45BDB9F-9880-4970-9F99-68443EC0DE7D} = {A654C9A2-97D6-40E5-84D3-9229363D9194}
 		{6B297FA8-D9C8-4DC1-9B9C-82EF0E3F3397} = {714A7FFD-3605-491E-86B2-91B88DF06B6B}
 		{9DA70767-8322-4E38-80B6-4BAF93ABBEA4} = {714A7FFD-3605-491E-86B2-91B88DF06B6B}
+		{48B91078-DE50-4B10-B4E2-5EA693ADF476} = {714A7FFD-3605-491E-86B2-91B88DF06B6B}
 	EndGlobalSection
 EndGlobal
