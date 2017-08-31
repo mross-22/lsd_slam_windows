@@ -24,6 +24,8 @@
 #include <vector>
 #include <opencv2/core/core.hpp>
 
+#include <fstream>
+
 namespace lsd_slam
 {
 
@@ -110,6 +112,9 @@ public:
 	
 private:
 	int width, height;
+
+
+	std::ofstream output_file;
 
 	std::string liveframe_channel;
 	//ros::Publisher liveframe_publisher;

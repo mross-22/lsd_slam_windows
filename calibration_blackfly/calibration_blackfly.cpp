@@ -10,9 +10,21 @@
 #include <FlyCapture2.h>
 //#include <FlyCapture2Defs.h>
 #include <iostream>
+#include <iomanip>
+#include <fstream>
+#include <iterator>
+#include <string>
 
 using namespace cv;
 using namespace std;
+
+string ToString(int value, int digitsCount);
+
+string ToString(int value, int digitsCount) {
+	ostringstream os;
+	os << setfill('0') << setw(digitsCount) << value;
+	return os.str();
+}
 
 const char * usage =
 " \nexample command line for calibration from a live feed.\n"
@@ -569,8 +581,11 @@ int main(int argc, char** argv)
 			blink = true;// capture.isOpened();
 		}
 
-		if (found)
+		if (found) {
+			string image_name = "CalibFrame_" + ToString(i, 5) + ".jpg";
+			imwrite("E:/20170830_Cork/calib/" + image_name, view);
 			drawChessboardCorners(view, boardSize, Mat(pointbuf), found);
+		}
 
 		string msg = mode == CAPTURING ? "100/100" :
 			mode == CALIBRATED ? "Calibrated" : "Press 'g' to start";

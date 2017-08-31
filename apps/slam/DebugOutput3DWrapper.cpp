@@ -34,6 +34,9 @@
 #include <opencv2/highgui.hpp>
 #include <opencv2/imgproc.hpp>
 
+#include <fstream>
+
+
 namespace lsd_slam
 {
 
@@ -43,6 +46,7 @@ DebugOutput3DWrapper::DebugOutput3DWrapper(int width, int height)
 	cv::namedWindow("Tracking_output", 1); //Create window
 	this->width = width;
 	this->height = height;
+	output_file.open("trajectory.csv");
 
 	/*liveframe_channel = nh_.resolveName("lsd_slam/liveframes");
 	liveframe_publisher = nh_.advertise<lsd_slam_viewer::keyframeMsg>(liveframe_channel,1);
@@ -68,6 +72,7 @@ DebugOutput3DWrapper::DebugOutput3DWrapper(int width, int height)
 
 DebugOutput3DWrapper::~DebugOutput3DWrapper()
 {
+	output_file.close();
 }
 
 
@@ -169,6 +174,7 @@ void DebugOutput3DWrapper::publishTrackedFrame(Frame* kf)
 	cv::circle(tracker_display, cv::Point(320+camToWorld.translation()[0]*640, abs(-240 + camToWorld.translation()[1]*480)), 2, cv::Scalar(255, 0, 0),4);
 	cv::imshow("Tracking_output", tracker_display);
 	std::cout << "PublishTrackedKeyframe: " << camToWorld.translation()[0] << " " << camToWorld.translation()[1] << "  " << camToWorld.translation()[2] << std::endl;
+	output_file << camToWorld.translation()[0] << ", " << camToWorld.translation()[1] << ",  " << camToWorld.translation()[2] << ",  " << camToWorld.unit_quaternion().w() << ",  " << camToWorld.unit_quaternion().x() << ",  " << camToWorld.unit_quaternion().y() << ",  " << camToWorld.unit_quaternion().z() << '\n';
 }
 
 
